@@ -1,16 +1,12 @@
-# expenses
+# Personal Expenses
 
-A new Flutter project.
+This is just a flutter demo project. I have created this app to show weekly expenses on custom vertical bar chart.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Overview 
+![Android Home Screen](assets/Android1.png)
+![On Add Button](assets/Android2.png)
+![Enter Details](assets/Android3.png)
+![Expense List and Chart ](assets/Android4.png)
+![IOS On Add Button](assets/IOS_expense1.png)
+![Add Date](assets/IOS_expense2.png)
+![IOS Expense List and Chart ](assets/IOS_expense3.png)
