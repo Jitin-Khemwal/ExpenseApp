@@ -1,11 +1,18 @@
 import 'package:expenses/AddExpense.dart';
 import 'package:expenses/models/Transation.dart';
+import 'package:expenses/widgets/ExpenseScaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import './ExpenseItem.dart';
 import './Chart.dart';
 import 'package:intl/intl.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const ExpenseApp());
 }
 
@@ -74,29 +81,12 @@ class _HomePageAppState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Expense"),
-        actions: [
-          IconButton(
-              onPressed: () => _showBottomSheet(context),
-              icon: const Icon(
-                Icons.add,
-                color: Colors.white,
-              ))
-        ],
-      ),
-      body: MainLayout(transactions, (id) {
-        _deleteTransaction(id);
-      }),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () => _showBottomSheet(context),
-          child: const Icon(
-            Icons.add,
-            color: Colors.black,
-          )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    );
+    return ExpenseScaffold(
+        MainLayout(transactions, (id) {
+          _deleteTransaction(id);
+        }), () {
+      _showBottomSheet(context);
+    });
   }
 }
 
@@ -129,9 +119,12 @@ class MainLayout extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: Text("Add Expense by clicking on '+' button"),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child: Text(
+                    "Add Expense by clicking on '+' button",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                 )
               ],
             )

@@ -48,12 +48,15 @@ class ExpenseItem extends StatelessWidget {
                       Text(DateFormat("MMM dd yyyy").format(item.date))
                     ],
                   )),
-              IconButton(
-                  icon: const Icon(Icons.delete),
-                  color: Colors.red,
-                  onPressed: () {
-                    delteCallBack(item.id);
-                  })
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: IconButton(
+                    icon: const Icon(Icons.delete),
+                    color: Colors.red,
+                    onPressed: () {
+                      delteCallBack(item.id);
+                    }),
+              )
             ],
           ),
         ));

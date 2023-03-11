@@ -62,6 +62,7 @@ class _AddExpenseState extends State<AddExpense> {
     return Container(
       padding: const EdgeInsets.all(10),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextField(
